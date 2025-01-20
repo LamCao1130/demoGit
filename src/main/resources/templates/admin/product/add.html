@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- Mirrored from loopinfosol.in/themeforest/ekka-html-v32/ekka-admin/product-add.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Oct 2022 00:38:48 GMT -->
+<head th:replace="/admin/fragmens::head('Sản phẩm')"></head>
+
+<body class="ec-header-fixed ec-sidebar-fixed ec-sidebar-dark ec-header-light" id="body">
+
+<!-- WRAPPER -->
+<div class="wrapper">
+
+  <!-- LEFT MAIN SIDEBAR -->
+  <div th:replace="/admin/fragmens::left('product')"></div>
+  <!-- PAGE WRAPPER -->
+  <div class="ec-page-wrapper">
+
+    <!-- Header -->
+    <header th:replace="/admin/fragmens::header()" ></header>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="ec-content-wrapper">
+      <div class="content">
+        <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
+          <div>
+            <h1>Tạo mới tài khoản</h1>
+            <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
+              <span><i class="mdi mdi-chevron-right"></i></span>Account</p>
+          </div>
+          <div>
+            <a th:href="@{/admin/product/list}" class="btn btn-primary"> Xem danh sách
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-default">
+              <div class="card-header card-header-border-bottom">
+                <h2>Thêm sản phẩm</h2>
+              </div>
+
+              <div class="card-body">
+                <div class="row ec-vendor-uploads">
+
+                  <div class="col-lg-8">
+                    <div class="ec-vendor-upload-detail">
+                      <form class="row g-3" action="addproduct" method="post" >
+                        <div class="col-md-6">
+                          <label  class="form-label">Tên sản phẩm</label>
+                          <input type="text"  class="form-control slug-title" name="email">
+                          <label    class="form-label error"></label>
+                        </div>
+                          <div class="col-md-6">
+                            <label  class="form-label">Giá</label>
+                            <input type="text"  class="form-control slug-title" name="pass" >
+                            <label    class="form-label error"></label>
+                          </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label">chọn thể loại</label>
+                          <select name="category"  class="form-select">
+                            <option th:each="c : ${categories}"  th:value="${c.getCategoryId()}" th:text="${c.getCategoryName()}"></option>
+
+                          </select>
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label">chọn thương hiệu</label>
+                          <select name="brand"   class="form-select">
+                              <option th:each="brand : ${brands}"  th:value="${brand.getBrandId()}" th:text="${brand.getBrandName()}"></option>
+
+                          </select>
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label">chọn màu</label>
+                          <select name="color"   class="form-select">
+                            <option th:each="cl : ${colors}"  th:value="${cl.getColorId()}" th:text="${cl.getColorName()}"></option>
+
+                          </select>
+                        </div>
+
+                        <div class="col-md-12">
+                          <label for="slug" class="col-12 col-form-label">Link ảnh</label>
+                          <div class="col-12">
+                            <input id="slug"  name="img" class="form-control here set-slug" type="text">
+                            <label   class="form-label error"></label>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 36</label>
+                          <input type="text" class="form-control"  name="s36" >
+                          <label class="form-label error"></label>
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 37</label>
+                          <input type="text" class="form-control"  name="s37" >
+                          <label class="form-label error"></label>
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 38</label>
+                          <input type="text" class="form-control"  name="s38" >
+                          <label class="form-label error"></label>
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 39</label>
+                          <input type="text" class="form-control"  name="s39" >
+                          <label class="form-label error"></label>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 40</label>
+                          <input type="text" class="form-control"  name="s40" >
+                          <label class="form-label error"></label>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 41</label>
+                          <input type="text" class="form-control"  name="s41" >
+                          <label class="form-label error"></label>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 42</label>
+                          <input type="text" class="form-control"  name="s42" >
+                          <label class="form-label error"></label>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 43</label>
+                          <input type="text" class="form-control"  name="s43" >
+                          <label class="form-label error"></label>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 44</label>
+                          <input type="text" class="form-control"  name="s44" >
+                          <label class="form-label error"></label>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">số lượng size 45</label>
+                          <input type="text" class="form-control"  name="s45" >
+                          <label class="form-label error"></label>
+                        </div>
+
+                        <div class="col-md-12">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End Content -->
+    </div> <!-- End Content Wrapper -->
+
+    <!-- Footer -->
+    <footer th:replace="/admin/fragmens::footer()"></footer>
+
+  </div> <!-- End Page Wrapper -->
+</div> <!-- End Wrapper -->
+
+<!-- Common Javascript -->
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+<script src="assets/plugins/jquery/jquery.notify.min.js"></script>
+<script src="assets/plugins/jquery/jquery.bundle.notify.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/plugins/tags-input/bootstrap-tagsinput.js"></script>
+<script src="assets/plugins/simplebar/simplebar.min.js"></script>
+<script src="assets/plugins/jquery-zoom/jquery.zoom.min.js"></script>
+<script src="assets/plugins/slick/slick.min.js"></script>
+
+<!-- Option Switcher -->
+<script src="assets/plugins/options-sidebar/optionswitcher.js"></script>
+
+<!-- Ekka Custom -->
+<script src="assets/js/ekka.js"></script>
+<script>
+  function ChangeValueColor() {
+    let color1 = document.querySelector(`.color1`);
+    let checkboxColor1 = document.querySelector(`.checkbox-color1`);
+    checkboxColor1.setAttribute("value", color1.value);
+  }
+
+  // function myFunction()
+  // {
+  // 	var input = document.createElement("INPUT");
+  // 	input.setAttribute("type", "text");
+  // 	input.setAttribute("value", "1234");
+  // 	document.body.appendChild(input);
+  // }
+  //
+  // myFunction();
+
+  // let count = 1;
+  // function newElement() {
+  // 	// Get the element
+  // 	var elem = document.querySelector(`#elem${count}`);
+  // 	var num = document.querySelector(`#colorNum${count}`);
+  //
+  // 	let i = num.innerHTML;
+  //
+  // 	// Create a copy of it
+  //
+  // 	let clone = elem.cloneNode(true);
+  // 	let cloneNum = num.cloneNode(true);
+  //
+  // 	// Update the ID and add a class
+  // 	count++;
+  //
+  // 	clone.id = `elem${count}`;
+  // 	cloneNum.id = `colorNum${count}`;
+  //
+  //
+  // 	// Inject it into the DOM
+  // 	elem.after(clone);
+  // 	elem.after(cloneNum);
+  //
+  //
+  // }
+  //
+  // delete1.onclick = function () {
+  // 	const e = document.querySelector(`#elem${}`)
+  // 	e.remove();
+  // }
+
+
+</script>
+</body>
+</html>

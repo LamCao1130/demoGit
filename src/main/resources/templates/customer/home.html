@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/customer/fragmens::head('Trang chủ')"></head>
+
+<body>
+
+<header th:replace="/customer/fragmens::header()"></header>
+
+<nav th:replace="/customer/fragmens::nav()"></nav>
+
+<section class="section-content mb-2">
+  <div class="container">
+    <header class="section-heading py-4 d-flex justify-content-between">
+      <h3 class="section-title">Danh mục sản phẩm</h3>
+      <a class="btn btn-secondary" href="#" role="button" style="height: fit-content;">Xem tất cả</a>
+    </header> <!-- section-heading.// -->
+    <div class="row item-grid">
+      <div class="col-lg-3 col-md-6" th:each="b:${lb}">
+        <div class="card mb-4">
+          <div class="card-body">
+            <a th:href="@{/brand(id=${b.getBrandId()},page=${'1'})}" class="stretched-link">
+              <div class="d-flex align-items-center">
+                <img th:src="${b.getBrandImg()}" style="width: 15%; height: 15%;" >
+                <span class="category-title ms-3" th:text="${b.getBrandName()}"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div> <!-- col.// -->
+    </div> <!-- row.// -->
+  </div> <!-- container.// -->
+</section> <!-- section-content.// -->
+
+<section class="section-content mb-5">
+  <div class="container">
+    <header class="section-heading py-4 d-flex justify-content-between">
+      <h3 class="section-title">Sản phẩm mới nhất</h3>
+      <a class="btn btn-secondary" href="#" role="button" style="height: fit-content;">Xem tất cả</a>
+    </header> <!-- section-heading.// -->
+    <div class="row item-grid">
+      <div class="col-lg-3 col-md-6" th:each="p: ${list}">
+        <div class="card p-3 mb-4">
+          <a href="#" class="img-wrap text-center">
+            <img class="img-fluid" th:src="${p.getProductImg()}">
+          </a>
+          <figcaption class="info-wrap mt-2">
+            <a href="#" class="title" th:text="${p.productName}"></a>
+            <div class="price mt-1 fw-bold" th:text="${p.price}+ ' VND'"></div>
+          </figcaption>
+        </div>
+      </div>
+    </div> <!-- row.// -->
+  </div> <!-- container.// -->
+</section> <!-- section-content.// -->
+
+<footer th:replace="/customer/fragmens::footer()"></footer> <!-- section-footer.// -->
+
+</body>
+
+</html>

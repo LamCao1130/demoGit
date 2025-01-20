@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/admin/fragmens::head('Thương hiệu')"></head>
+<body class="ec-header-fixed ec-sidebar-fixed ec-sidebar-dark ec-header-light" id="body">
+
+<!-- WRAPPER -->
+<div class="wrapper">
+    <!-- LEFT MAIN SIDEBAR -->
+    <div th:replace="/admin/fragmens::left('brand')"></div>
+    <!-- PAGE WRAPPER -->
+    <div class="ec-page-wrapper">
+        <!-- Header -->
+        <header th:replace="/admin/fragmens::header()" ></header>
+
+        <!-- CONTENT WRAPPER -->
+        <div class="ec-content-wrapper">
+            <div class="content">
+                <form action="/admin/brand/addform" method="get">
+                    <div class="breadcrumb-wrapper breadcrumb-contacts">
+                        <div>
+                            <h1>Danh sách thương hiệu</h1>
+                            <p class="breadcrumbs"><span><a href="index.html">Trang chủ</a></span>
+                                <span><i class="mdi mdi-chevron-right"></i></span>Thương hiệu
+                            </p>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#addUser" > Tạo mới thương hiệu
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="ec-vendor-list card card-default">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="responsive-data-table" class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Tên thương hiệu</th>
+                                            <th>Ảnh</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <tr th:each="b: ${list}">
+                                            <td th:text="${b.getBrandName()}"></td>
+                                            <td style="width: 50%; height: 50%;"> <img th:src="${b.getBrandImg()} "  style="width: 30%; height: 30%; object-fit: cover;"> </td>
+                                            <td>
+                                                <div class="btn-group mb-1">
+                                                    <button type="button"
+                                                            class="btn btn-outline-success">Info</button>
+                                                    <button type="button"
+                                                            class="btn btn-outline-success dropdown-toggle dropdown-toggle-split"
+                                                            data-bs-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false" data-display="static">
+                                                        <span class="sr-only">Info</span>
+                                                    </button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" onclick="return confirm('Bạn có muốn xóa?')" th:href="@{delete(id=${b.getBrandId()})}">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End Content -->
+        </div> <!-- End Content Wrapper -->
+        <!-- Footer -->
+        <footer th:replace="/admin/fragmens::footer()"></footer>
+    </div> <!-- End Page Wrapper -->
+</div> <!-- End Wrapper -->
+</body>
+<th:block th:replace="/admin/fragmens::js()"></th:block>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+
+<!-- Mirrored from loopinfosol.in/themeforest/ekka-html-v32/ekka-admin/product-add.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Oct 2022 00:38:48 GMT -->
+<head th:replace="/admin/fragmens::head('Sản phẩm')"></head>
+
+<body class="ec-header-fixed ec-sidebar-fixed ec-sidebar-dark ec-header-light" id="body">
+
+<!-- WRAPPER -->
+<div class="wrapper">
+
+  <!-- LEFT MAIN SIDEBAR -->
+  <div th:replace="/admin/fragmens::left('product')"></div>
+  <!-- PAGE WRAPPER -->
+  <div class="ec-page-wrapper">
+
+    <!-- Header -->
+    <header th:replace="/admin/fragmens::header()" ></header>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="ec-content-wrapper">
+      <div class="content">
+        <div class="breadcrumb-wrapper d-flex align-items-center justify-content-between">
+          <div>
+            <h1>Sửa tài khoản</h1>
+            <p class="breadcrumbs"><span><a href="index.html">Home</a></span>
+              <span><i class="mdi mdi-chevron-right"></i></span>Account</p>
+          </div>
+          <div>
+            <a th:href="@{admin/account/list}" class="btn btn-primary"> Xem danh sách
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-default">
+              <div class="card-header card-header-border-bottom">
+                <h2>Sửa tài khoản</h2>
+              </div>
+
+              <div class="card-body">
+                <div class="row ec-vendor-uploads">
+
+                  <div class="col-lg-8">
+                    <div class="ec-vendor-upload-detail">
+                      <form class="row g-3" action="updatesave" method="get">
+                        <div class="col-md-6">
+                          <label  class="form-label">ID</label>
+                          <input type="text" th:value="${account.accountId}" readonly class="form-control slug-title" name="id">
+                        </div>
+                        <div class="col-md-6">
+                          <label  class="form-label">Email</label>
+                          <input type="text" th:value="${account.email}" class="form-control slug-title" name="email">
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label">chọn quyền</label>
+                          <select name="role"  class="form-select">
+                              <option value="1">Admin</option>
+                              <option value="0">User</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Giới tính</label>
+                          <select name="gender"  class="form-select">
+                            <option value="1">Nam</option>
+                            <option value="0">Nữ</option>
+                          </select>
+                        </div>
+                        <div class="col-md-12">
+                          <label for="slug" class="col-12 col-form-label">Số điện thoại</label>
+                          <div class="col-12">
+                            <input id="slug" th:value="${account.phoneNumber}" name="sdt" class="form-control here set-slug" type="text">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <label class="form-label">Họ và tên</label>
+                          <input type="text" th:value="${account.fullname}" class="form-control" name="fullname" >
+                        </div>
+                        <div class="col-md-12">
+                          <button type="submit" class="btn btn-primary">Sửa</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- End Content -->
+    </div> <!-- End Content Wrapper -->
+
+    <!-- Footer -->
+    <footer th:replace="/admin/fragmens::footer()"></footer>
+
+  </div> <!-- End Page Wrapper -->
+</div> <!-- End Wrapper -->
+
+<!-- Common Javascript -->
+<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+<script src="assets/plugins/jquery/jquery.notify.min.js"></script>
+<script src="assets/plugins/jquery/jquery.bundle.notify.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/plugins/tags-input/bootstrap-tagsinput.js"></script>
+<script src="assets/plugins/simplebar/simplebar.min.js"></script>
+<script src="assets/plugins/jquery-zoom/jquery.zoom.min.js"></script>
+<script src="assets/plugins/slick/slick.min.js"></script>
+
+<!-- Option Switcher -->
+<script src="assets/plugins/options-sidebar/optionswitcher.js"></script>
+
+<!-- Ekka Custom -->
+<script src="assets/js/ekka.js"></script>
+<script>
+  function ChangeValueColor() {
+    let color1 = document.querySelector(`.color1`);
+    let checkboxColor1 = document.querySelector(`.checkbox-color1`);
+    checkboxColor1.setAttribute("value", color1.value);
+  }
+
+  // function myFunction()
+  // {
+  // 	var input = document.createElement("INPUT");
+  // 	input.setAttribute("type", "text");
+  // 	input.setAttribute("value", "1234");
+  // 	document.body.appendChild(input);
+  // }
+  //
+  // myFunction();
+
+  // let count = 1;
+  // function newElement() {
+  // 	// Get the element
+  // 	var elem = document.querySelector(`#elem${count}`);
+  // 	var num = document.querySelector(`#colorNum${count}`);
+  //
+  // 	let i = num.innerHTML;
+  //
+  // 	// Create a copy of it
+  //
+  // 	let clone = elem.cloneNode(true);
+  // 	let cloneNum = num.cloneNode(true);
+  //
+  // 	// Update the ID and add a class
+  // 	count++;
+  //
+  // 	clone.id = `elem${count}`;
+  // 	cloneNum.id = `colorNum${count}`;
+  //
+  //
+  // 	// Inject it into the DOM
+  // 	elem.after(clone);
+  // 	elem.after(cloneNum);
+  //
+  //
+  // }
+  //
+  // delete1.onclick = function () {
+  // 	const e = document.querySelector(`#elem${}`)
+  // 	e.remove();
+  // }
+
+
+</script>
+</body>
+</html>

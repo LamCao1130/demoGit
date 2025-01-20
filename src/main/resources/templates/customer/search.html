@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/customer/fragmens::head('sản phẩm')">
+
+</head>
+
+<body>
+
+<header class="section-header" th:replace="/customer/fragmens::header()">
+
+</header> <!-- section-header.// -->
+
+<nav th:replace="/customer/fragmens::nav()"></nav>
+
+<!-- Thêm code vào khu vực này -->
+<section class="section-xxx" style="height: 200%">
+    <div class="container">
+        <div class="row item-grid">
+            <div class="col-lg-4 col-md-6" th:each="p: ${list}">
+                <div class="card p-3 mb-4">
+                    <a href="#" class="img-wrap text-center">
+                        <img class="img-fluid" th:src="${p.getProductImg()}">
+                    </a>
+                    <figcaption class="info-wrap mt-2">
+                        <a href="#" class="title" th:text="${p.getProductName()}"></a>
+                        <div class="price mt-1 fw-bold" th:text="${p.getPrice()}"></div>
+                    </figcaption>
+                </div>
+            </div> <!-- col.// -->
+        </div>
+        <nav class="mt-4">
+            <ul class="pagination">
+                <li class="page-item" th:classappend="${cpage == 1 ? 'disabled' : ''}">
+                    <a class="page-link" th:href="@{/customer/search(search=${search},page=${cpage}-1)}">Trang trước</a>
+                </li>
+                <th:block th:each="i: ${#numbers.sequence(1 , npage ) }">
+                    <li class="page-item " ><a class="page-link" th:classappend="${cpage == i ? 'activepage' : ''}"
+                                               th:href="@{/customer/search(search=${search},page=${i})}" th:text="${i}"></a></li>
+                    <!--                        <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+                    <!--                        <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+                </th:block>
+                <li class="page-item" th:classappend="${cpage==npage ? 'disabled':''}">
+                    <a class="page-link" th:href="@{/customer/search(search=${search},page=${cpage}+1)}">
+                        Trang sau
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<!-- Thêm code vào khu vực này.// -->
+
+
+<footer th:replace="/customer/fragmens::footer()"></footer>
+
+</body>
+
+</html>
